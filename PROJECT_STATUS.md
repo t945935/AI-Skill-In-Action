@@ -5,7 +5,7 @@
 - 書籍：AI Skill 實戰：先找、再組、後自建
 - 讀者 repository：<https://github.com/t945935/AI-Skill-In-Action>
 - 分支：`main`
-- 最近驗證 commit：`e54c651b9fb976de102c92d7ed2194276382107e`
+- 候選書稿基準 commit：`a126da0`
 - 候選版本：`v0.1.1`
 - 狀態：內容完成、候選發行包準備中，尚未正式上架
 
