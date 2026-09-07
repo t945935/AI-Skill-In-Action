@@ -1,0 +1,21 @@
+name: project-quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  deterministic-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build merged manuscript
+        shell: pwsh
+        run: ./tools/build-manuscript.ps1
+      - name: Run workflow checks
+        shell: pwsh
+        run: ./tools/run-workflow.ps1
+      - name: Run security fixture checks
+        shell: pwsh
+        run: ./tools/run-security-fixtures.ps1

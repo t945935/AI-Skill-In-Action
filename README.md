@@ -4,7 +4,7 @@
 
 ## 專案狀態
 
-目前為新專案啟動工作區；作者與正式出版日期尚待確認。出版用狀態不放入讀者書稿，而記錄於專案文件。
+目前為讀者可用的 `v0.1.0` 候選版。讀者可從 `main` 分支取得範例；正式 tag、授權與商店出版欄位仍在發布閘門中確認。詳細狀態見 [`PROJECT_STATUS.md`](PROJECT_STATUS.md)。
 
 ## 讀者參考 GitHub repository
 
@@ -22,6 +22,9 @@
 - [`FACTS.md`](FACTS.md)：需查證的版本與平台事實
 - [`docs/store-listing.md`](docs/store-listing.md)：Google Play Books／Kobo 共用上架資料草稿
 - [`docs/release-gates.md`](docs/release-gates.md)：出版前閘門與未決事項
+- [`docs/risk-register.md`](docs/risk-register.md)：風險、負責角色與應對策略
+- [`docs/raci.md`](docs/raci.md)：專案角色與責任分工
+- [`docs/compatibility-matrix.md`](docs/compatibility-matrix.md)：工具與宿主相容性基線
 - [`manuscript/chapters/`](manuscript/chapters/)：一個副章一個 Markdown 檔
 - [`manuscript/appendices/`](manuscript/appendices/)：選型、測試、安全與發布範本
 - [`examples/`](examples/)：讀者可下載與執行的範例
@@ -31,7 +34,7 @@
 
 ## 建議作業順序
 
-1. 先完成 `PROJECT_BRIEF.md` 的作者、GitHub repository 與目標平台欄位。
+1. 先閱讀 [`GETTING_STARTED.md`](GETTING_STARTED.md)，固定 repository commit 與必要工具。
 2. 依 `BOOK_PLAN.md` 撰寫導讀與第一章。
 3. 每完成一個副章，同步建立範例、測試與讀者操作說明。
 4. 內容凍結後再建立 EPUB、執行 EPUBCheck 與裝置試讀。
@@ -44,4 +47,4 @@
 .\tools\build-manuscript.ps1
 ```
 
-合併稿會寫入 `output/manuscript.md`。目前作者、授權與 GitHub 遠端尚未確認，因此尚未標示正式出版版本。
+合併稿會寫入 `output/manuscript.md`。目前來源是 `manuscript/` 與 `styles/`；正式出版前仍須通過最新 EPUBCheck、實機試讀與身份／授權確認。

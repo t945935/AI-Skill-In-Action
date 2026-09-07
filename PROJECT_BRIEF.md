@@ -16,14 +16,13 @@
 
 - 讀者 repository：https://github.com/t945935/AI-Skill-In-Action
 - 遠端擁有者：t945935
-- 預設分支：main（待首次推送後確認）
+- 預設分支：main（已於 2026-09-07 推送並驗證）
 - 發布授權：待指定
 - 範例相容版本：每章於 `FACTS.md` 登記並標示查證日期
 
 ## 尚待確認
 
-- 作者與出版者名稱
+- 出版者名稱
 - 正式副標題與封面文字
-- GitHub repository URL
 - 授權條款與程式碼使用條款
 - EPUB、Google Play Books、Kobo 的正式出版日期與價格

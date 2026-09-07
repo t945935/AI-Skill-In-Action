@@ -7,11 +7,11 @@
 - 書名：AI Skill 實戰
 - 副標題：先找、再組、後自建
 - 語言：臺灣繁體中文（`zh-TW`）
-- 作者：待確認
+- 作者：Happy eBook Authors
 - 出版者：待確認
 - ISBN／版權頁：待確認
 - 正式出版日期：待確認
-- 讀者 repository：待確認
+- 讀者 repository：https://github.com/t945935/AI-Skill-In-Action
 
 ## 書籍簡介
 

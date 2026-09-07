@@ -10,7 +10,7 @@
 .\examples\06-ebook-publishing\run-case.ps1
 ```
 
-預期會重建 `output/manuscript.md`，並確認 `output/AI-Skill-In-Action.epub` 存在；EPUBCheck、裝置試讀與商店提交仍是後續人工關卡。
+預期會重建合併稿與 EPUB，執行工作流／安全驗證，並建立 `dist/v0.1.0/` 候選發行包。若版本目錄已存在，請改用 `-Version 0.1.1`；EPUBCheck、裝置試讀與商店提交仍是後續人工關卡。
 
 ## 狀態流程
 

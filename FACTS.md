@@ -4,7 +4,8 @@
 
 | 項目 | 目前值 | 來源／驗證方式 | 狀態 |
 |---|---|---|---|
-| 新書讀者 GitHub repository | `https://github.com/t945935/AI-Skill-In-Action` | 使用者提供 URL | 已記錄，待推送驗證 |
+| 新書讀者 GitHub repository | `https://github.com/t945935/AI-Skill-In-Action` | 使用者提供 URL；`git ls-remote` | 已推送，`main` 指向 `e54c651b9fb976de102c92d7ed2194276382107e`（2026-09-07） |
 | 前作參考 repository | `t945935/opencode-deep-dive` | 前作 README | 已記錄，非本書唯一來源 |
 | Skill 格式與欄位 | 待查證 | 目標工具官方文件 | 待查證 |
 | 發布授權 | 待指定 | 作者／出版者確認 | 待確認 |
+| 目前書籍候選版本 | `v0.1.0` | 專案本地版本化發行包 | 候選版，尚未建立正式 tag |

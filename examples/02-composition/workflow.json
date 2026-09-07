@@ -3,12 +3,12 @@
   "stages": [
     {
       "name": "manuscript-check",
-      "inputs": ["manuscript/chapters/00-preface.md", "STYLE_GUIDE.md"],
+      "inputs": ["manuscript/chapters/", "manuscript/appendices/", "STYLE_GUIDE.md"],
       "output": "reports/manuscript-check.md"
     },
     {
       "name": "continuity-review",
-      "inputs": ["manuscript/chapters/00-preface.md", "BOOK_PLAN.md"],
+      "inputs": ["manuscript/chapters/", "manuscript/appendices/", "BOOK_PLAN.md"],
       "output": "reports/continuity-review.md"
     },
     {
