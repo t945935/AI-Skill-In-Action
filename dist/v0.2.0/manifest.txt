@@ -1,0 +1,13 @@
+version=v0.2.0
+status=release-candidate
+source_commit=60fe5c11560cb303f98c12ab212f15e2bc14636d
+built_at=2026-09-07T17:28:16+08:00
+validator=tools/run-workflow.ps1; tools/run-security-fixtures.ps1; examples/07-web-learning-material/run-case.ps1
+known_limitations=EPUBCheck and device reading test require external confirmation
+commercial_fields=author confirmed; publisher/license/ISBN/price/territories pending
+file=AI-Skill-In-Action.epub|size=364375|sha256=507312E86DCA5224D41A7A519B68822E2A5F032E6B83832C6DB54BA66A9382F8
+file=book.yaml|size=334|sha256=31918A262C39C44E6AD5E79625D83AD94D8D186200937D2081A10983FA5B2AD9
+file=cover.jpg|size=308741|sha256=BF888A287C0F44FD885837F8606BF6CAF67705F6C7E252EC61FD9E605CD05C4D
+file=RELEASE_STATUS.md|size=472|sha256=3F17946D21298A6BAA63E141CD761ECD17D55D167B7B4CD3DA82AF1A4B2C580D
+file=release-gates.md|size=1203|sha256=0395414CBD8243A9A9F510F465781DE9B1809AD1020D11C5B53C38445591F479
+file=store-listing.md|size=1418|sha256=C39A9E672532CAAF8F190AC6E2FA5EB3B7B01BCF3404FD1750B55DD029E02DBF

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用兩課完成內容契約、靜態網站建置與發布前驗證。">
+  <title>從 Markdown 建立網頁教材</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-course-id="markdown-web-course" data-page-kind="index">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="site-kicker">網頁版教材實作</p>
+      <h1>從 Markdown 建立網頁教材</h1>
+      <p>用兩課完成內容契約、靜態網站建置與發布前驗證。</p>
+    </div>
+  </header>
+  <nav class="course-nav" aria-label="課程目錄">
+    <div class="nav-inner">
+      <a class="home-link" href="index.html" aria-current="page">課程首頁</a>
+      <ol class="lesson-nav-list">
+        <li><a href="define-unit.html">第 1 課：定義一個可驗收的教材單元</a></li>
+        <li><a href="build-navigation.html">第 2 課：建立、驗證並交付網頁教材</a></li>
+      </ol>
+    </div>
+  </nav>
+  <main id="main" class="content-shell" tabindex="-1">
+    <section class="progress-panel" aria-labelledby="progress-heading">
+      <div>
+        <p class="eyebrow">學習進度</p>
+        <h2 id="progress-heading">從第一課開始實作</h2>
+      </div>
+      <div class="progress-value">
+        <progress data-course-progress max="2" value="0" aria-label="課程完成進度">0 / 2</progress>
+        <span data-progress-text aria-live="polite">已完成 0／2 課</span>
+      </div>
+    </section>
+    <section aria-labelledby="lessons-heading">
+      <p class="eyebrow">課程內容</p>
+      <h2 id="lessons-heading">可以完成的學習單元</h2>
+      <ol class="lesson-grid">
+        <li class="lesson-card">
+          <p class="eyebrow">第 1 課</p>
+          <h3>定義一個可驗收的教材單元</h3>
+          <p>能寫出包含學習目標、示範、練習與完成條件的單元規格。</p>
+          <p class="completion-state" data-completion-state="define-unit">尚未完成</p>
+          <a href="define-unit.html">開始本課<span class="visually-hidden">：定義一個可驗收的教材單元</span></a>
+        </li>
+        <li class="lesson-card">
+          <p class="eyebrow">第 2 課</p>
+          <h3>建立、驗證並交付網頁教材</h3>
+          <p>能建立可操作的課程導覽、執行發布前檢查，並判斷網站是否可交付。</p>
+          <p class="completion-state" data-completion-state="build-navigation">尚未完成</p>
+          <a href="build-navigation.html">開始本課<span class="visually-hidden">：建立、驗證並交付網頁教材</span></a>
+        </li>
+      </ol>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>本教材由本機 Markdown 建置；正式公開前仍須完成人工走查。</p>
+  </footer>
+</body>
+</html>

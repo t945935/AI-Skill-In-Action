@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="能建立可操作的課程導覽、執行發布前檢查，並判斷網站是否可交付。">
+  <title>建立、驗證並交付網頁教材｜從 Markdown 建立網頁教材</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-course-id="markdown-web-course" data-page-kind="lesson">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header compact-header">
+    <div class="header-inner">
+      <p class="site-kicker">從 Markdown 建立網頁教材</p>
+      <p class="page-context">第 2 課，共 2 課</p>
+    </div>
+  </header>
+  <nav class="course-nav" aria-label="課程目錄">
+    <div class="nav-inner">
+      <a class="home-link" href="index.html">課程首頁</a>
+      <ol class="lesson-nav-list">
+        <li><a href="define-unit.html">第 1 課：定義一個可驗收的教材單元</a></li>
+        <li><a href="build-navigation.html" aria-current="page">第 2 課：建立、驗證並交付網頁教材</a></li>
+      </ol>
+    </div>
+  </nav>
+  <main id="main" class="content-shell lesson-shell" tabindex="-1">
+    <article class="lesson-content">
+      <header class="lesson-header">
+        <p class="eyebrow">第 2 課</p>
+        <h1>建立、驗證並交付網頁教材</h1>
+        <p class="lesson-objective"><strong>學習目標：</strong>能建立可操作的課程導覽、執行發布前檢查，並判斷網站是否可交付。</p>
+      </header>
+      <div class="lesson-body">
+<p>網頁教材不只是一組獨立頁面。讀者必須知道自己在哪裡、接下來去哪裡，以及如何只用鍵盤完成主要操作；製作者也要能證明內容與網站已通過交付前檢查。</p>
+<h2 id="使用語意化頁面結構">使用語意化頁面結構</h2>
+<p>本範例的每一頁都有頁首、課程導覽、主要內容與頁尾。跳到主要內容連結放在頁面最前方，讓鍵盤及螢幕閱讀器使用者可以略過重複導覽。</p>
+<p>課程導覽使用清單表達課次集合，並以 <code>aria-current="page"</code> 標示目前課次。上一課與下一課則放在正文之後，符合多數讀者的閱讀動線。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">nav</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">&quot;課程目錄&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">ol</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;lesson-1.html&quot;</span><span class="ot"> aria-current</span><span class="op">=</span><span class="st">&quot;page&quot;</span><span class="dt">&gt;</span>第一課<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;lesson-2.html&quot;</span><span class="dt">&gt;</span>第二課<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">ol</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">nav</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><code>aria-label</code> 說明導覽用途，<code>aria-current</code> 則讓目前位置不只靠顏色辨識。實際檔名應由課程設定產生，不要在多個頁面手動複製。</p>
+<h2 id="保留可見焦點">保留可見焦點</h2>
+<p>使用 <code>Tab</code> 鍵移動時，連結與按鈕需要有清楚的焦點外框。不要只靠顏色或滑鼠游標提示可操作元件，也不要用 CSS 移除 <code>outline</code> 卻沒有替代樣式。</p>
+<h2 id="小練習">小練習</h2>
+<p>建置網站後，不使用滑鼠完成下列操作：</p>
+<ol type="1">
+<li>跳到主要內容。</li>
+<li>前往下一課。</li>
+<li>將目前課次標記為完成。</li>
+<li>回到課程首頁查看進度。</li>
+</ol>
+<p>若焦點位置看不清楚，或操作順序不合理，就先修正模板，不要把問題留到部署後。</p>
+<h2 id="執行可重複的自動檢查">執行可重複的自動檢查</h2>
+<p><code>run-case.ps1</code> 會重建網站，再檢查內容契約、頁面連結、語意地標、焦點樣式、本機資源與安全 fixture。完整案例必須通過；缺少學習目標與含有可執行內容的案例必須被阻塞。</p>
+<p>自動檢查也會比較來源檔案雜湊，確認建置沒有改寫 Markdown 或 <code>course.json</code>。這讓 <code>source/</code> 保持為唯一可編輯來源，而 <code>site/</code> 可以隨時重新產生。</p>
+<h2 id="完成發布前人工走查">完成發布前人工走查</h2>
+<p>請至少檢查 375、768 與 1440 像素寬度，確認文字與元件沒有重疊或截斷；接著用鍵盤走完兩課，確認焦點、目前課次與完成狀態容易辨識。</p>
+<p>記錄一項自動檢查可以發現的問題，以及一項只能靠人工閱讀發現的問題。兩類結果都確認後，才適合由負責人判斷是否部署。</p>
+<h2 id="本課小結">本課小結</h2>
+<p>語意地標、清楚導覽與可見焦點共同構成可操作的教材基線。可靠的交付流程還會把自動檢查與人工判斷放在不同關卡；確認網址、授權、公開範圍與隱私設定後，才進入部署。</p>
+
+      </div>
+    </article>
+    <section class="completion-panel" aria-labelledby="completion-heading">
+      <div>
+        <p class="eyebrow">完成檢核</p>
+        <h2 id="completion-heading">完成本課練習了嗎？</h2>
+      </div>
+      <button class="completion-button" type="button" data-completion-id="build-navigation" aria-pressed="false">
+        標記為完成
+      </button>
+      <p class="completion-message" data-completion-message aria-live="polite"></p>
+    </section>
+    <nav class="lesson-pagination" aria-label="課次前後導覽">
+      <a class="previous-link" href="define-unit.html">← 上一課：定義一個可驗收的教材單元</a>
+      <a class="next-link" href="index.html">完成課程，查看總進度 →</a>
+    </nav>
+  </main>
+  <footer class="site-footer">
+    <p><a href="index.html">回到課程首頁查看總進度</a></p>
+  </footer>
+</body>
+</html>
