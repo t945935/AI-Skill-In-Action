@@ -4,4 +4,4 @@
 
 讀者 repository：<https://github.com/t945935/AI-Skill-In-Action>
 
-目前基準：候選書稿 commit `10d6216`。正式版本請改用發布後的 tag；各範例的可重現命令集中於 [`GETTING_STARTED.md`](../GETTING_STARTED.md)。
+目前基準：候選書稿 commit `71fee3e`。正式版本請改用發布後的 tag；各範例的可重現命令集中於 [`GETTING_STARTED.md`](../GETTING_STARTED.md)。
