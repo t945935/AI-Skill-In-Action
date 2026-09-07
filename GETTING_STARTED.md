@@ -46,6 +46,8 @@ cp -R examples/03-build-skill/. "$skill_root/"
 
 ## 先跑不需 AI 帳號的範例
 
+先閱讀 [`examples/skills/skill-catalog.md`](examples/skills/skill-catalog.md)，確認每個候選 Skill 的來源、限制與驗收證據；不要因名稱相似就直接安裝。
+
 ```powershell
 .\tools\list-skills.ps1
 .\tools\run-security-fixtures.ps1

@@ -19,3 +19,6 @@ jobs:
       - name: Run security fixture checks
         shell: pwsh
         run: ./tools/run-security-fixtures.ps1
+      - name: Check Skill catalog cards
+        shell: pwsh
+        run: ./tools/check-skill-catalog.ps1

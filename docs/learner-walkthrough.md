@@ -124,7 +124,7 @@ PowerShell 與 Bash 指令直接讀取 `.codex/skills`。第一次使用或使�
 
 - `tools/run-workflow.ps1`：三個節點均為 `pass`，並檢查章節／附錄數量、內部連結、章節必要欄位與 EPUB 資源。
 - `tools/run-security-fixtures.ps1`：完整案例 `pass`、缺少術語表 `blocked`、不可信內容 `flagged`，且 fixture 完整性通過。
-- `tools/package-release.ps1 -Version 0.1.2`：產生含 EPUB、封面、metadata、manifest、SHA-256 與狀態檔的候選包。
+- `tools/package-release.ps1 -Version 0.1.3`：產生含 EPUB、封面、metadata、manifest、SHA-256 與狀態檔的候選包。
 
 ## 本輪已處理
 

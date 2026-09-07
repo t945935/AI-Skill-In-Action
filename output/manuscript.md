@@ -57,6 +57,8 @@
 
 完成 `examples/01-discovery/inventory.sample.md` 的一份專案版本，至少比較三個候選方案，並留下採用／組合／微調／自建的決策理由。
 
+本書的核心候選清單見 [`examples/skills/skill-catalog.md`](../../examples/skills/skill-catalog.md)。清單只提供初評；讀者仍要依自己的宿主、版本與授權重新查證。
+
 ## 為什麼不能一開始就自己寫
 
 看到重複工作時，直覺通常是開一個新資料夾、寫一份指示，再想辦法讓它跑起來。但真正的成本往往在後面：既有方案可能已經處理了錯誤情況、權限限制與版本相容性；自行重做不只浪費時間，也會製造另一份需要維護的規則。
@@ -186,6 +188,8 @@ Skill 設計的第一步不是寫檔案，而是理解問題並查找已存在�
 ## 本章交付
 
 完成一份工作流 JSON 與至少一份交接報告；每個節點都要有輸入、輸出、通過條件、失敗反應與重跑起點。
+
+作為組合參考，可先採用 `write-ebook-workflow` 規劃，再交給 `review-ebook-continuity` 與 `validate-epub-project`；每個節點的輸出都必須符合下一節點的契約。
 
 ## 為什麼「有 Skill」還不等於「有流程」
 
@@ -324,6 +328,8 @@ New-Item -ItemType Directory -Force $runRoot | Out-Null
 ## 本章交付
 
 完成一個最小 `SKILL.md` 與至少一個模板，明確列出觸發條件、不處理的工作、驗收案例及所需權限。
+
+若需要規格起草提示，可參考 `skill-creator` 的卡片；若需要取得既有方案，先參考 `skill-installer`。兩者都不能取代目標宿主的官方格式與授權確認。
 
 ## 何時才值得自建
 
@@ -472,6 +478,8 @@ Skill 的限制不是附註，而是功能的一部分。至少要明確寫出�
 
 完成至少五個固定案例：兩個正向、兩個負向與一個安全案例；每案都要記錄預期狀態、實際結果與不可接受的副作用。
 
+本書的建議組合是用 `review-ebook-continuity` 檢查內容，用 `validate-epub-project` 檢查產物，再用 `audit-ebook-project-practices` 檢查閘門與責任；三者的結果要分開記錄，不可用一個 `pass` 互相代替。
+
 ## 從「看起來可用」到「有證據可用」
 
 一個 Skill 可能在理想輸入下產生漂亮的結果，卻在缺檔、格式錯誤或惡意內容出現時做出危險決定。驗證的目的不是證明它永遠正確，而是確認已知條件下的行為符合契約，遇到未知條件時會清楚停下來。
@@ -605,6 +613,8 @@ Skill：book-chapter-review
 
 建立一個不可覆寫的版本目錄，內含 Skill、文件、測試摘要、變更記錄、manifest、SHA-256 與授權狀態。
 
+`package-ebook-release` 可作為發行封裝參考；正式 tag 前仍要由維護者確認來源 commit、授權與所有人工閘門。
+
 ## 從個人檔案到交付物
 
 在個人電腦上能執行，不代表適合交給讀者或團隊。交付前至少要回答：使用者拿到的是哪一版？需要哪些前置條件？如何驗證安裝成功？出了問題要找誰？
@@ -716,6 +726,8 @@ Skill 的生命週期不在第一次執行成功時結束。版本、測試、�
 
 完成一份從 `draft` 到 `release-candidate` 的狀態紀錄，附 EPUB、封面、驗證報告、版本 manifest 與尚待出版者確認的欄位。
 
+完整案例會串接 `write-ebook-workflow`、`codex-spark-book-writing`、`review-ebook-continuity`、`validate-epub-project` 與 `package-ebook-release`；平台發布類 Skill 僅在人工核准後使用。
+
 ## 案例背景
 
 假設團隊要把一套 AI Skill 教材整理成 EPUB，並準備讀者 repository。團隊希望減少重複檢查，但不能因自動化而誤刪書稿、把未驗證的版本上傳，或把內部狀態寫進讀者正文。
@@ -803,7 +815,7 @@ ready-to-submit
 
 完整案例的工作流草稿與檢查表見 [`examples/06-ebook-publishing/`](../../examples/06-ebook-publishing/)。
 
-在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.2`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.2/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
+在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.3`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.3/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
 
 ## 常見錯誤
 
@@ -937,5 +949,26 @@ description: 用一句話說明用途與適用情境。
 - 只測試成功案例：見第四章「三種基本測試」。
 - 直接追蹤未固定的最新分支：見第五章「分發與權限」。
 - 把技術成功當成正式上架：見第六章「驗證與人工閘門」。
+
+
+# 附錄｜常用 Skill 導覽
+
+本附錄提供本書實作路線的核心 Skill 地圖。它們是選型候選，不是永久排名；版本、授權與宿主支援狀態會變動，使用前應重新閱讀來源的 `SKILL.md`。
+
+| 工作階段 | 優先候選 | 讀者應留下的證據 |
+|---|---|---|
+| 取得與安裝 | `skill-installer` | 來源、版本、授權與安裝紀錄 |
+| 規劃與撰寫 | `write-ebook-workflow`、`codex-spark-book-writing` | 讀者定位、章節目標與修訂差異 |
+| 自建 | `skill-creator` | 能力卡、`SKILL.md`、限制與驗收案例 |
+| 內容驗證 | `review-ebook-continuity`、`audit-ebook-project-practices` | 問題清單、風險與責任分工 |
+| EPUB 驗證 | `validate-epub-project` | EPUBCheck、資源檢查與實機結果 |
+| 發行 | `package-ebook-release` | 版本目錄、manifest、SHA-256 與來源 commit |
+| 預覽與平台修正 | `publish-ebook-preview`、`fix-google-books-warnings` | 預覽 URL、warning 原文與修正前後差異 |
+
+## 納入規則
+
+只有在有明確來源、版本查證欄位、授權狀態、成功／失敗案例與乾淨環境命令時，才可將 Skill 放入主線。`publish-google-play-books`、`google-play-books-publisher`、`imagegen`、`documents`、`pdf`、`presentations` 與 `spreadsheets` 屬於選讀延伸，不是本書最短成功路徑。
+
+各 Skill 的讀者卡片與初評矩陣見 [`examples/skills/skill-catalog.md`](../../examples/skills/skill-catalog.md)。本 repository 不重新分發第三方 Skill 的完整內容；外部發布、上傳與價格設定一律保留人工閘門。
 
 

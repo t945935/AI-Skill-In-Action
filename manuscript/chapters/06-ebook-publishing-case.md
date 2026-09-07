@@ -15,6 +15,8 @@
 
 完成一份從 `draft` 到 `release-candidate` 的狀態紀錄，附 EPUB、封面、驗證報告、版本 manifest 與尚待出版者確認的欄位。
 
+完整案例會串接 `write-ebook-workflow`、`codex-spark-book-writing`、`review-ebook-continuity`、`validate-epub-project` 與 `package-ebook-release`；平台發布類 Skill 僅在人工核准後使用。
+
 ## 案例背景
 
 假設團隊要把一套 AI Skill 教材整理成 EPUB，並準備讀者 repository。團隊希望減少重複檢查，但不能因自動化而誤刪書稿、把未驗證的版本上傳，或把內部狀態寫進讀者正文。
@@ -102,7 +104,7 @@ ready-to-submit
 
 完整案例的工作流草稿與檢查表見 [`examples/06-ebook-publishing/`](../../examples/06-ebook-publishing/)。
 
-在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.2`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.2/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
+在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.3`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.3/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
 
 ## 常見錯誤
 
