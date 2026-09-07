@@ -1,0 +1,7 @@
+.skill-run/
+runs/
+reports/
+tmp/
+*.log
+__pycache__/
+.venv/

@@ -1,0 +1,20 @@
+{
+  "workflow": "ebook-release",
+  "stages": [
+    {
+      "name": "manuscript-check",
+      "inputs": ["manuscript/chapters/00-preface.md", "STYLE_GUIDE.md"],
+      "output": "reports/manuscript-check.md"
+    },
+    {
+      "name": "continuity-review",
+      "inputs": ["manuscript/chapters/00-preface.md", "BOOK_PLAN.md"],
+      "output": "reports/continuity-review.md"
+    },
+    {
+      "name": "epub-validation",
+      "inputs": ["output/AI-Skill-In-Action.epub", "assets/cover/cover.jpg"],
+      "output": "reports/epub-validation.md"
+    }
+  ]
+}
