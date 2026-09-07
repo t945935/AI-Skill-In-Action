@@ -5,3 +5,8 @@
 讀者 repository：<https://github.com/t945935/AI-Skill-In-Action>
 
 目前基準：候選書稿 commit（見 `PROJECT_STATUS.md`）。正式版本請改用發布後的 tag；各範例的可重現命令集中於 [`GETTING_STARTED.md`](../GETTING_STARTED.md)。
+
+完整案例：
+
+- [`06-ebook-publishing/`](06-ebook-publishing/)：建立 EPUB 候選發行包。
+- [`07-web-learning-material/`](07-web-learning-material/)：建立並驗證靜態網頁教材。

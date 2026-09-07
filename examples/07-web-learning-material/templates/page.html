@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{LESSON_OBJECTIVE}}">
+  <title>{{LESSON_TITLE}}｜{{COURSE_TITLE}}</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-course-id="{{COURSE_ID}}" data-page-kind="lesson">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header compact-header">
+    <div class="header-inner">
+      <p class="site-kicker">{{COURSE_TITLE}}</p>
+      <p class="page-context">第 {{LESSON_NUMBER}} 課，共 {{LESSON_COUNT}} 課</p>
+    </div>
+  </header>
+  <nav class="course-nav" aria-label="課程目錄">
+    <div class="nav-inner">
+      <a class="home-link" href="index.html">課程首頁</a>
+      <ol class="lesson-nav-list">
+{{LESSON_NAV}}
+      </ol>
+    </div>
+  </nav>
+  <main id="main" class="content-shell lesson-shell" tabindex="-1">
+    <article class="lesson-content">
+      <header class="lesson-header">
+        <p class="eyebrow">第 {{LESSON_NUMBER}} 課</p>
+        <h1>{{LESSON_TITLE}}</h1>
+        <p class="lesson-objective"><strong>學習目標：</strong>{{LESSON_OBJECTIVE}}</p>
+      </header>
+      <div class="lesson-body">
+{{LESSON_BODY}}
+      </div>
+    </article>
+    <section class="completion-panel" aria-labelledby="completion-heading">
+      <div>
+        <p class="eyebrow">完成檢核</p>
+        <h2 id="completion-heading">完成本課練習了嗎？</h2>
+      </div>
+      <button class="completion-button" type="button" data-completion-id="{{LESSON_ID}}" aria-pressed="false">
+        標記為完成
+      </button>
+      <p class="completion-message" data-completion-message aria-live="polite"></p>
+    </section>
+    <nav class="lesson-pagination" aria-label="課次前後導覽">
+      {{PREVIOUS_LINK}}
+      {{NEXT_LINK}}
+    </nav>
+  </main>
+  <footer class="site-footer">
+    <p><a href="index.html">回到課程首頁查看總進度</a></p>
+  </footer>
+</body>
+</html>

@@ -104,7 +104,7 @@ ready-to-submit
 
 完整案例的工作流草稿與檢查表見 [`examples/06-ebook-publishing/`](../../examples/06-ebook-publishing/)。
 
-在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.5`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.5/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
+在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.2.0-local`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.2.0-local/`。若該版本目錄已存在，改用新的練習版本，不覆寫既有發行包。
 
 ## 常見錯誤
 
@@ -121,3 +121,5 @@ ready-to-submit
 ## 本章小結
 
 電子書出版案例顯示，Skill 的價值不在於把所有步驟自動化，而在於讓每個階段的責任、產物與停損點清楚可見。先重用既有能力，補足最小缺口，經過測試與安全閘門後再建立可追溯的發行包，才能把一次性的流程變成可長期維護的工作系統。
+
+下一章會把同一套方法遷移到網頁版教材：保留盤點、契約、驗證與人工閘門，改以導覽、響應式、無障礙與瀏覽器走讀處理媒介差異。這能檢驗真正可重用的是工作方法，而不是只適用於 EPUB 的固定步驟。

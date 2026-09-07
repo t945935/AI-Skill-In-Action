@@ -1,7 +1,7 @@
 # 書稿目錄說明
 
 - `chapters/00-preface.md` 是導讀。
-- `chapters/01-*.md` 至 `chapters/06-*.md` 是正文副章。
+- `chapters/01-*.md` 至 `chapters/07-*.md` 是正文副章。
 - `appendices/` 放置可複製的選型、規格、測試、安全與發布範本。
 - 標題本身不套用自動編號；建置工具應依檔名排序產生目錄。
 

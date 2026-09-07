@@ -16,7 +16,7 @@ cd AI-Skill-In-Action
 - Git
 - PowerShell 7 或 Bash
 - 可讀取 Skill 的 Codex／相容宿主
-- 若要建置 EPUB：Pandoc
+- 若要建置 EPUB 或第七章網頁教材：Pandoc
 
 先確認專案檔案與範例目錄存在：
 
@@ -53,6 +53,14 @@ cp -R examples/03-build-skill/. "$skill_root/"
 .\tools\run-security-fixtures.ps1
 .\tools\run-workflow.ps1
 ```
+
+第七章的靜態網頁教材案例使用同一套 Pandoc，不需要 Node.js、後端或外部 JavaScript 套件：
+
+```powershell
+.\examples\07-web-learning-material\run-case.ps1
+```
+
+成功時會建立 `examples/07-web-learning-material/site/`，並輸出內容契約、導覽、無障礙基線與安全 fixture 的檢查結果；正式部署仍停在人工確認點。
 
 最後一個命令會在未提交的 `reports/` 產生交接報告。若要建置本書草稿：
 

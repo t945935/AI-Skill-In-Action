@@ -1,0 +1,20 @@
+{
+  "id": "markdown-web-course",
+  "title": "從 Markdown 建立網頁教材",
+  "description": "用兩課完成內容契約、靜態網站建置與發布前驗證。",
+  "language": "zh-TW",
+  "lessons": [
+    {
+      "id": "define-unit",
+      "title": "定義一個可驗收的教材單元",
+      "file": "lessons/01-define-unit.md",
+      "objective": "能寫出包含學習目標、示範、練習與完成條件的單元規格。"
+    },
+    {
+      "id": "build-navigation",
+      "title": "建立、驗證並交付網頁教材",
+      "file": "lessons/02-build-navigation.md",
+      "objective": "能建立可操作的課程導覽、執行發布前檢查，並判斷網站是否可交付。"
+    }
+  ]
+}

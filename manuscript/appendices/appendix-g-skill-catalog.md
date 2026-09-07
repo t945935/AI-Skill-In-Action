@@ -10,7 +10,8 @@
 | 內容驗證 | `review-ebook-continuity`、`audit-ebook-project-practices` | 問題清單、風險與責任分工 |
 | EPUB 驗證 | `validate-epub-project` | EPUBCheck、資源檢查與實機結果 |
 | 發行 | `package-ebook-release` | 版本目錄、manifest、SHA-256 與來源 commit |
-| 預覽與平台修正 | `publish-ebook-preview`、`fix-google-books-warnings` | 預覽 URL、warning 原文與修正前後差異 |
+| 網頁教材與預覽 | `publish-ebook-preview` | 內容範圍、靜態頁面、導覽與瀏覽器走查紀錄 |
+| 平台修正 | `fix-google-books-warnings` | warning 原文與修正前後差異 |
 
 ## 納入規則
 

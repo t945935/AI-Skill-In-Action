@@ -12,3 +12,7 @@
 | 發布 | Release | 將 Skill、軟體或文件版本公開提供使用 |
 | 發行 | Distribution | 將可追溯的書籍或版本包交付給讀者 |
 | 上架 | Store listing | 將書籍提交到 Google Play Books、Kobo 等商店供讀者購買 |
+| 網頁教材 | Web learning material | 以瀏覽器呈現學習路徑、課程內容、導覽與練習的教材 |
+| 靜態網站 | Static site | 不依賴後端即可由 HTML、CSS、JavaScript 與靜態資源提供的網站 |
+| 響應式設計 | Responsive design | 讓版面依手機、平板與桌面寬度調整而保持可讀與可操作 |
+| 部署候選版 | Deployment candidate | 已通過本機檢查、等待人工核准公開部署的網站產物 |

@@ -1,11 +1,17 @@
 param(
-  [string]$Version = '0.1.0',
+  [string]$Version = '0.2.0-local',
   [string]$OutputRoot = 'dist'
 )
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Get-Location).Path
-$packageRoot = Join-Path $projectRoot (Join-Path $OutputRoot "v$Version")
+$outputBase = if ([System.IO.Path]::IsPathRooted($OutputRoot)) {
+  [System.IO.Path]::GetFullPath($OutputRoot)
+} else {
+  [System.IO.Path]::GetFullPath((Join-Path $projectRoot $OutputRoot))
+}
+if ($outputBase -eq [System.IO.Path]::GetPathRoot($outputBase)) { throw '發行根目錄不可為磁碟根目錄' }
+$packageRoot = Join-Path $outputBase "v$Version"
 if (Test-Path -LiteralPath $packageRoot) { throw "拒絕覆寫既有發行目錄：$packageRoot" }
 
 $buildScript = Join-Path $projectRoot 'tools/build-manuscript.ps1'
@@ -33,6 +39,9 @@ if ($LASTEXITCODE -ne 0) { throw '工作流驗證失敗' }
 $global:LASTEXITCODE = 0
 & (Join-Path $projectRoot 'tools/run-security-fixtures.ps1') | Out-Host
 if ($LASTEXITCODE -ne 0) { throw '安全 fixture 驗證失敗' }
+$global:LASTEXITCODE = 0
+& (Join-Path $projectRoot 'examples/07-web-learning-material/run-case.ps1') | Out-Host
+if ($LASTEXITCODE -ne 0) { throw '網頁教材案例驗證失敗' }
 
 New-Item -ItemType Directory -Force $packageRoot | Out-Null
 Copy-Item -LiteralPath $epubPath -Destination (Join-Path $packageRoot 'AI-Skill-In-Action.epub')
@@ -52,6 +61,7 @@ $status = @"
 - Built at: $builtAt
 - EPUBCheck: awaiting external validator
 - Device reading test: awaiting human confirmation
+- Web learning material: local build and responsive browser QA passed; deployment awaiting human approval
 - Author: Happy eBook Authors
 - License, publisher, ISBN, price and territories: awaiting publisher confirmation
 "@
@@ -62,7 +72,7 @@ $manifest = @(
   'status=release-candidate',
   "source_commit=$commit",
   "built_at=$builtAt",
-  'validator=tools/run-workflow.ps1; tools/run-security-fixtures.ps1',
+  'validator=tools/run-workflow.ps1; tools/run-security-fixtures.ps1; examples/07-web-learning-material/run-case.ps1',
   'known_limitations=EPUBCheck and device reading test require external confirmation',
   'commercial_fields=author confirmed; publisher/license/ISBN/price/territories pending'
 )

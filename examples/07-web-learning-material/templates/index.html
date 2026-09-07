@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{COURSE_DESCRIPTION}}">
+  <title>{{COURSE_TITLE}}</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-course-id="{{COURSE_ID}}" data-page-kind="index">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="site-kicker">網頁版教材實作</p>
+      <h1>{{COURSE_TITLE}}</h1>
+      <p>{{COURSE_DESCRIPTION}}</p>
+    </div>
+  </header>
+  <nav class="course-nav" aria-label="課程目錄">
+    <div class="nav-inner">
+      <a class="home-link" href="index.html" aria-current="page">課程首頁</a>
+      <ol class="lesson-nav-list">
+{{LESSON_NAV}}
+      </ol>
+    </div>
+  </nav>
+  <main id="main" class="content-shell" tabindex="-1">
+    <section class="progress-panel" aria-labelledby="progress-heading">
+      <div>
+        <p class="eyebrow">學習進度</p>
+        <h2 id="progress-heading">從第一課開始實作</h2>
+      </div>
+      <div class="progress-value">
+        <progress data-course-progress max="{{LESSON_COUNT}}" value="0" aria-label="課程完成進度">0 / {{LESSON_COUNT}}</progress>
+        <span data-progress-text aria-live="polite">已完成 0／{{LESSON_COUNT}} 課</span>
+      </div>
+    </section>
+    <section aria-labelledby="lessons-heading">
+      <p class="eyebrow">課程內容</p>
+      <h2 id="lessons-heading">可以完成的學習單元</h2>
+      <ol class="lesson-grid">
+{{LESSON_CARDS}}
+      </ol>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>本教材由本機 Markdown 建置；正式公開前仍須完成人工走查。</p>
+  </footer>
+</body>
+</html>

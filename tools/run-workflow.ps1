@@ -33,11 +33,36 @@ function Invoke-StageCheck([string]$name) {
     'manuscript-check' {
       $chapters = @(Get-ChildItem -LiteralPath (Resolve-ProjectPath 'manuscript/chapters') -Filter '*.md')
       $appendices = @(Get-ChildItem -LiteralPath (Resolve-ProjectPath 'manuscript/appendices') -Filter '*.md')
-      if ($chapters.Count -lt 7) { throw "章節數量不足：$($chapters.Count)" }
+      $requiredChapters = @(
+        '00-preface.md',
+        '01-discover-before-build.md',
+        '02-compose-workflow.md',
+        '03-build-skill.md',
+        '04-verify-secure.md',
+        '05-release-governance.md',
+        '06-ebook-publishing-case.md',
+        '07-web-learning-material-case.md'
+      )
+      $chapterNames = @($chapters | ForEach-Object { $_.Name })
+      foreach ($requiredChapter in $requiredChapters) {
+        if ($chapterNames -notcontains $requiredChapter) { throw "缺少必要章節：$requiredChapter" }
+      }
       if ($appendices.Count -lt 5) { throw "附錄數量不足：$($appendices.Count)" }
+      foreach ($requiredWebCaseFile in @(
+        'examples/07-web-learning-material/README.md',
+        'examples/07-web-learning-material/SKILL.md',
+        'examples/07-web-learning-material/browser-qa.md',
+        'examples/07-web-learning-material/run-case.ps1',
+        'examples/07-web-learning-material/source/course.json',
+        'examples/07-web-learning-material/scripts/build-course.ps1',
+        'examples/07-web-learning-material/scripts/test-course.ps1',
+        'examples/07-web-learning-material/scripts/package-course.ps1'
+      )) {
+        if (-not (Test-Path -LiteralPath (Resolve-ProjectPath $requiredWebCaseFile))) { throw "缺少第七章範例：$requiredWebCaseFile" }
+      }
       $broken = @(Test-MarkdownLinks)
       if ($broken.Count -gt 0) { throw "發現失效內部連結：$($broken -join '; ')" }
-      $details += "章節 $($chapters.Count) 份、附錄 $($appendices.Count) 份；內部連結通過。"
+      $details += "導讀與第一至第七章、附錄 $($appendices.Count) 份、第七章範例及內部連結通過。"
     }
     'continuity-review' {
       foreach ($file in (Get-ChildItem -LiteralPath (Resolve-ProjectPath 'manuscript/chapters') -Filter '*.md')) {

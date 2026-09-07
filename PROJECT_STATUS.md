@@ -6,14 +6,14 @@
 - 讀者 repository：<https://github.com/t945935/AI-Skill-In-Action>
 - 分支：`main`
 - 候選書稿基準 commit：`728dd06`
-- 候選版本：`v0.1.5`
+- 候選版本：`v0.2.0`
 - 狀態：內容完成、候選發行包準備中，尚未正式上架
 
 ## 已完成
 
-- 導讀、六章正文、六份附錄與六組讀者範例
+- 導讀、七章正文、七份附錄與七組讀者範例
 - 可重建的 Markdown 合併稿與 EPUB
-- 讀者入門、工作流、安全 fixture 與 Skill 發行包工具
+- 讀者入門、工作流、安全 fixture、網頁教材與 Skill 發行包工具
 - 1600×2400 JPG 封面，作者文字為 `Happy eBook Authors`
 - 本地工作流、安全 fixture、封面與 EPUB 結構檢查
 

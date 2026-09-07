@@ -1,7 +1,7 @@
 # 學習者走讀報告
 
 走讀角度：第一次接觸 Skill、只依書稿與讀者 repository 操作的人。  
-走讀範圍：導讀、六個正文單元、六份附錄與六組範例。
+走讀範圍：導讀、七個正文單元、七份附錄與七組範例。
 
 ## 總結
 
@@ -124,7 +124,8 @@ PowerShell 與 Bash 指令直接讀取 `.codex/skills`。第一次使用或使�
 
 - `tools/run-workflow.ps1`：三個節點均為 `pass`，並檢查章節／附錄數量、內部連結、章節必要欄位與 EPUB 資源。
 - `tools/run-security-fixtures.ps1`：完整案例 `pass`、缺少術語表 `blocked`、不可信內容 `flagged`，且 fixture 完整性通過。
-- `tools/package-release.ps1 -Version 0.1.5`：產生含 EPUB、封面、metadata、manifest、SHA-256 與狀態檔的候選包。
+- `tools/package-release.ps1 -Version 0.2.0`：產生含 EPUB、封面、metadata、manifest、SHA-256 與狀態檔的候選包。
+- `examples/07-web-learning-material/run-case.ps1`：建立三課靜態教材，檢查內容契約、導覽、無障礙基線與安全 fixture，並停在人工部署閘門。
 
 ## 本輪已處理
 
@@ -134,5 +135,6 @@ PowerShell 與 Bash 指令直接讀取 `.codex/skills`。第一次使用或使�
 - 已補齊安全 fixture 與 `run-security-fixtures.ps1`，可輸出預期狀態。
 - 已新增 `package-skill.ps1`，可建立版本目錄與 manifest／SHA-256。
 - 已新增電子書出版 `run-case.ps1`，並在各範例 README 補上實際命令。
+- 已新增網頁版教材完整案例、響應式範本及正負向驗證。
 
 仍待人工完成：正式 repository tag、授權條款、作者／出版資料、最新 EPUBCheck、實機試讀與外部發布授權。

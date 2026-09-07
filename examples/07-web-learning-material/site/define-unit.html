@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="能寫出包含學習目標、示範、練習與完成條件的單元規格。">
+  <title>定義一個可驗收的教材單元｜從 Markdown 建立網頁教材</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body data-course-id="markdown-web-course" data-page-kind="lesson">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header compact-header">
+    <div class="header-inner">
+      <p class="site-kicker">從 Markdown 建立網頁教材</p>
+      <p class="page-context">第 1 課，共 2 課</p>
+    </div>
+  </header>
+  <nav class="course-nav" aria-label="課程目錄">
+    <div class="nav-inner">
+      <a class="home-link" href="index.html">課程首頁</a>
+      <ol class="lesson-nav-list">
+        <li><a href="define-unit.html" aria-current="page">第 1 課：定義一個可驗收的教材單元</a></li>
+        <li><a href="build-navigation.html">第 2 課：建立、驗證並交付網頁教材</a></li>
+      </ol>
+    </div>
+  </nav>
+  <main id="main" class="content-shell lesson-shell" tabindex="-1">
+    <article class="lesson-content">
+      <header class="lesson-header">
+        <p class="eyebrow">第 1 課</p>
+        <h1>定義一個可驗收的教材單元</h1>
+        <p class="lesson-objective"><strong>學習目標：</strong>能寫出包含學習目標、示範、練習與完成條件的單元規格。</p>
+      </header>
+      <div class="lesson-body">
+<p>先把教材單元定義清楚，後面的版面與工具選擇才有判斷依據。對初學者而言，「讀完一篇文章」不是容易驗收的成果；「能完成一張單元規格卡」才是。</p>
+<h2 id="為什麼先寫內容契約">為什麼先寫內容契約</h2>
+<p>內容契約（content contract）列出每一課不可缺少的資料。本範例要求課次識別碼、標題、檔案路徑與學習目標。建置器先檢查契約，再開始轉換 HTML，因此缺漏不會悄悄流入成品。</p>
+<p>一個實用的學習目標應描述讀者完成本課後可以做出的行動，例如「能列出三項驗收條件」，而不是只寫「了解驗收」。</p>
+<h2 id="建立單元規格卡">建立單元規格卡</h2>
+<p>請為自己的教材寫下四個欄位：</p>
+<ul>
+<li>學習目標：讀者完成後能做什麼。</li>
+<li>示範：讀者會看到哪個完整結果。</li>
+<li>練習：讀者要親手完成什麼。</li>
+<li>完成條件：如何判斷練習成功。</li>
+</ul>
+<h2 id="小練習">小練習</h2>
+<p>把「認識網頁教材」改寫成一個可觀察的學習目標，再補上一項完成條件。若另一位讀者只看這兩句就能判斷是否完成，這張規格卡就具備基本可驗收性。</p>
+<h2 id="本課小結">本課小結</h2>
+<p>先定義目標與完成條件，可以避免網站做得漂亮，卻無法支持真正的學習任務。下一課會把這份內容契約轉成可操作、可驗證的靜態網站。</p>
+
+      </div>
+    </article>
+    <section class="completion-panel" aria-labelledby="completion-heading">
+      <div>
+        <p class="eyebrow">完成檢核</p>
+        <h2 id="completion-heading">完成本課練習了嗎？</h2>
+      </div>
+      <button class="completion-button" type="button" data-completion-id="define-unit" aria-pressed="false">
+        標記為完成
+      </button>
+      <p class="completion-message" data-completion-message aria-live="polite"></p>
+    </section>
+    <nav class="lesson-pagination" aria-label="課次前後導覽">
+      <span class="pagination-disabled" aria-disabled="true">← 已是第一課</span>
+      <a class="next-link" href="build-navigation.html">下一課：建立、驗證並交付網頁教材 →</a>
+    </nav>
+  </main>
+  <footer class="site-footer">
+    <p><a href="index.html">回到課程首頁查看總進度</a></p>
+  </footer>
+</body>
+</html>

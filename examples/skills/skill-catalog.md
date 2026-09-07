@@ -12,7 +12,7 @@
 | `audit-ebook-project-practices` | PM／出版稽核 | 4 | 5 | 第一章、第五章 | 組合 |
 | `validate-epub-project` | EPUB 驗證 | 5 | 5 | 第四章、第六章 | 採用 |
 | `package-ebook-release` | 發行封裝 | 5 | 5 | 第五章、第六章 | 採用 |
-| `publish-ebook-preview` | 網頁預覽 | 4 | 4 | 第六章 | 組合 |
+| `publish-ebook-preview` | 網頁預覽 | 4 | 4 | 第七章 | 組合，不代替教材設計 |
 | `fix-google-books-warnings` | 平台警告修正 | 4 | 4 | 第六章、附錄 | 選讀 |
 
 ## 選讀 Skill

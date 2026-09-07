@@ -1,0 +1,13 @@
+{
+  "id": "fixture-missing-objective",
+  "title": "缺少學習目標案例",
+  "description": "本案例必須被內容契約阻塞。",
+  "language": "zh-TW",
+  "lessons": [
+    {
+      "id": "fixture-lesson",
+      "title": "不完整單元",
+      "file": "lessons/lesson.md"
+    }
+  ]
+}
