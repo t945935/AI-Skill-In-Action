@@ -4,6 +4,24 @@ body {
   color: #1f2937;
 }
 
+/* 章名已自帶「第 X 章」；目錄不再顯示外層自動序號。 */
+nav#toc ol.toc,
+nav[role="doc-toc"] ol.toc {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+nav#toc ol.toc ol.toc,
+nav[role="doc-toc"] ol.toc ol.toc {
+  padding-left: 1.25em;
+}
+
+nav#toc li,
+nav[role="doc-toc"] li {
+  list-style: none;
+}
+
 h1, h2, h3 {
   line-height: 1.35;
   color: #0f3d56;
