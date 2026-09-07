@@ -54,7 +54,7 @@ README 應讓第一次使用的人在幾分鐘內完成最小操作，至少包�
 
 ```text
 dist/
-└── book-chapter-review-v1.0.0/
+└── book-chapter-review-v0.1.0/
     ├── SKILL.md
     ├── references/
     ├── templates/

@@ -108,6 +108,10 @@ sed -n '1,220p' "$skill_root/validate-epub-project/SKILL.md"
 
 公開 repository 或插件也要以同一張能力卡比較。不要因為名稱相似就直接安裝；先確認授權、維護狀態、輸入輸出、權限要求與是否能在讀者的環境重現。
 
+## 何時停止搜尋
+
+當已找到至少三個候選方案，且其中一個能滿足核心輸入／輸出契約、授權可接受、最近維護狀態可確認，便可停止擴大搜尋，進入小型驗證。若仍有關鍵缺口，應先記錄缺口與驗收案例，再決定組合、微調或自建；不要以「再找一個也許更好」無限延長需求分析。
+
 ## 用評估矩陣做決策
 
 把候選方案放進簡單的評估矩陣。分數不是為了製造精確幻覺，而是讓取捨留下紀錄。
@@ -265,7 +269,7 @@ Skill 之間需要共享上下文，但不代表每個節點都要讀取整個�
 
 本章範例使用上一章盤點的三類能力：書稿工作流程、內容連貫檢查與 EPUB 驗證。實際名稱會依讀者環境不同，請先閱讀各 Skill 的說明與限制。
 
-在工作目錄執行以下 PowerShell 指令，建立只包含流程交接資料的暫存目錄：
+在工作目錄先閱讀 [`examples/02-composition/workflow.json`](../../examples/02-composition/workflow.json)，再執行以下 PowerShell 指令，建立只包含流程交接資料的暫存目錄：
 
 ```powershell
 $runRoot = Join-Path (Get-Location) '.skill-run'
@@ -277,7 +281,7 @@ New-Item -ItemType Directory -Force $runRoot | Out-Null
 } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $runRoot 'workflow.json')
 ```
 
-接著依序執行各節點，每完成一節就更新交接紀錄。不要把 `.skill-run` 當成正式書稿，也不要把含有私人路徑或憑證的日誌提交到 repository。完整表格與交接範本見 [`examples/02-composition/README.md`](../../examples/02-composition/README.md)。
+接著在 repository 根目錄執行 `./tools/run-workflow.ps1`，依序檢查三個節點並在 `reports/` 產生交接紀錄；也可以用 `-FromStage continuity-review` 從中斷點重跑。不要把 `.skill-run` 當成正式書稿，也不要把含有私人路徑或憑證的日誌提交到 repository。完整表格與交接範本見 [`examples/02-composition/README.md`](../../examples/02-composition/README.md)。
 
 完成流程後，至少檢查：
 
@@ -502,6 +506,17 @@ Skill 或其參考檔更新後，重新執行一組固定案例，確認原本�
 
 每個案例都要指定「不可接受的結果」。例如缺少術語表時，產生一份沒有警告的空報告就是失敗，即使程式本身沒有拋出例外。
 
+## 風險分級與處置
+
+為了讓不同執行者得到一致結果，可用以下最低分級：
+
+| 等級 | 例子 | 處置 |
+|---|---|---|
+| Critical | 執行未授權命令、外洩金鑰、誤發布版本 | 立即停止，保留證據並交人工處理 |
+| High | 阻塞輸入被悄悄跳過、產物與來源不一致 | 不得進入下一節點，修正後重跑 |
+| Medium | 報告欄位缺漏、非阻塞格式問題 | 標記提醒，發布前確認 |
+| Low | 文字或排版小瑕疵 | 納入下一輪整理，不阻塞測試 |
+
 ## 檢查產物，而不是只檢查訊息
 
 對文件與程式碼型 Skill，至少檢查三層產物：
@@ -614,6 +629,8 @@ Skill：book-chapter-review
 - 哪些變更會改變安全邊界、權限或產物格式？
 
 只要輸入輸出契約、預設權限或必要資源改變，就應在變更記錄中明確標示，並增加回歸案例。不要只因為文字改了幾行就跳過測試；限制文字的改動也可能改變行為。
+
+書籍版本與 Skill 版本應分開管理：書籍版本描述教材、範例與出版產物的變更；Skill 版本描述可安裝能力的輸入、輸出與權限變更。兩者可以在 manifest 中互相記錄來源，但不能用一個版本號假裝另一個版本已完成驗證。
 
 ## 文件與變更記錄
 
@@ -786,6 +803,8 @@ ready-to-submit
 
 完整案例的工作流草稿與檢查表見 [`examples/06-ebook-publishing/`](../../examples/06-ebook-publishing/)。
 
+在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.1`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.1/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
+
 ## 常見錯誤
 
 - 為了展示自動化而跳過人工出版確認：技術成功不等於授權與身份正確。
@@ -891,5 +910,32 @@ description: 用一句話說明用途與適用情境。
 - [ ] manifest、檔案大小與 SHA-256 已產生。
 - [ ] 乾淨環境安裝與最小操作已驗證。
 - [ ] GitHub、商店或其他外部發布已取得明確授權。
+
+
+# 附錄｜名詞表與常見錯誤索引
+
+## 名詞表
+
+| 中文 | English | 使用說明 |
+|---|---|---|
+| 技能 | Skill | 可被觸發並執行一組明確工作的指示與資源集合 |
+| 提示 | Prompt | 一次性的任務要求或對話輸入 |
+| 範本 | Template | 可重複填入資料的固定格式 |
+| 代理 | Agent | 能依目標規劃並執行多步驟工作的系統 |
+| 插件 | Plugin | 為主系統增加外部能力或整合的套件 |
+| 技能盤點 | Skill inventory | 對現有 Skill、工具與流程的清冊與適用性紀錄 |
+| 輸入輸出契約 | I/O contract | 定義 Skill 可接受的輸入與必須產出的結果 |
+| 發布 | Release | 將 Skill、軟體或文件版本公開提供使用 |
+| 發行 | Distribution | 將可追溯的書籍或版本包交付給讀者 |
+| 上架 | Store listing | 將書籍提交到電子書商店供讀者購買 |
+
+## 常見錯誤索引
+
+- 先自建、後搜尋：見第一章「為什麼不能一開始就自己寫」。
+- 把多個 Skill 串成一段長提示：見第二章「衝突與失敗處理」。
+- 沒有寫不處理的工作：見第三章「把權限與停損寫進流程」。
+- 只測試成功案例：見第四章「三種基本測試」。
+- 直接追蹤未固定的最新分支：見第五章「分發與權限」。
+- 把技術成功當成正式上架：見第六章「驗證與人工閘門」。
 
 

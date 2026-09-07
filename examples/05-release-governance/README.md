@@ -15,7 +15,7 @@
 ## 建議結構
 
 ```text
-book-chapter-review-v1.0.0/
+book-chapter-review-v0.1.0/
 ├── SKILL.md
 ├── references/
 ├── templates/
