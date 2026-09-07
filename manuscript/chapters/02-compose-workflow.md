@@ -97,7 +97,7 @@ Skill 之間需要共享上下文，但不代表每個節點都要讀取整個�
 
 本章範例使用上一章盤點的三類能力：書稿工作流程、內容連貫檢查與 EPUB 驗證。實際名稱會依讀者環境不同，請先閱讀各 Skill 的說明與限制。
 
-在工作目錄執行以下 PowerShell 指令，建立只包含流程交接資料的暫存目錄：
+在工作目錄先閱讀 [`examples/02-composition/workflow.json`](../../examples/02-composition/workflow.json)，再執行以下 PowerShell 指令，建立只包含流程交接資料的暫存目錄：
 
 ```powershell
 $runRoot = Join-Path (Get-Location) '.skill-run'
@@ -109,7 +109,7 @@ New-Item -ItemType Directory -Force $runRoot | Out-Null
 } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $runRoot 'workflow.json')
 ```
 
-接著依序執行各節點，每完成一節就更新交接紀錄。不要把 `.skill-run` 當成正式書稿，也不要把含有私人路徑或憑證的日誌提交到 repository。完整表格與交接範本見 [`examples/02-composition/README.md`](../../examples/02-composition/README.md)。
+接著在 repository 根目錄執行 `./tools/run-workflow.ps1`，依序檢查三個節點並在 `reports/` 產生交接紀錄；也可以用 `-FromStage continuity-review` 從中斷點重跑。不要把 `.skill-run` 當成正式書稿，也不要把含有私人路徑或憑證的日誌提交到 repository。完整表格與交接範本見 [`examples/02-composition/README.md`](../../examples/02-composition/README.md)。
 
 完成流程後，至少檢查：
 

@@ -6,7 +6,7 @@
 - 讀者 repository：<https://github.com/t945935/AI-Skill-In-Action>
 - 分支：`main`
 - 最近驗證 commit：`e54c651b9fb976de102c92d7ed2194276382107e`
-- 候選版本：`v0.1.0`
+- 候選版本：`v0.1.1`
 - 狀態：內容完成、候選發行包準備中，尚未正式上架
 
 ## 已完成

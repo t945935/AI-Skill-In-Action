@@ -4,17 +4,23 @@
     {
       "name": "manuscript-check",
       "inputs": ["manuscript/chapters/", "manuscript/appendices/", "STYLE_GUIDE.md"],
-      "output": "reports/manuscript-check.md"
+      "output": "reports/manuscript-check.md",
+      "accepts": ["pass"],
+      "on_blocked": "stop"
     },
     {
       "name": "continuity-review",
       "inputs": ["manuscript/chapters/", "manuscript/appendices/", "BOOK_PLAN.md"],
-      "output": "reports/continuity-review.md"
+      "output": "reports/continuity-review.md",
+      "accepts": ["pass"],
+      "on_blocked": "stop"
     },
     {
       "name": "epub-validation",
       "inputs": ["output/AI-Skill-In-Action.epub", "assets/cover/cover.jpg"],
-      "output": "reports/epub-validation.md"
+      "output": "reports/epub-validation.md",
+      "accepts": ["pass"],
+      "on_blocked": "stop"
     }
   ]
 }
