@@ -8,7 +8,7 @@
 
 - URL：<https://github.com/t945935/AI-Skill-In-Action>
 - 預設分支：main（已驗證）
-- 範例版本標籤：正式 tag 尚待發布；目前以候選書稿基準 commit `a126da0` 為基準
+- 範例版本標籤：正式 tag 尚待發布；目前以候選書稿基準 commit `10d6216` 為基準
 - 授權：待指定
 
 ## 讀者使用流程
