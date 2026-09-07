@@ -41,7 +41,7 @@
 本書將從「先找再做」開始，逐步走到可測試、可維護、可發布的 Skill。下一個主題單元會建立方案盤點與選型方法。
 
 
-# 先找再做：問題定義與方案盤點
+# 第 1 章｜先找再做：問題定義與方案盤點
 
 ## 本章目標
 
@@ -172,7 +172,7 @@ sed -n '1,220p' "$skill_root/validate-epub-project/SKILL.md"
 Skill 設計的第一步不是寫檔案，而是理解問題並查找已存在的能力。能力卡讓需求可搜尋，評估矩陣讓取捨可追蹤，四種處理方式則把「先找再做」變成具體決策。下一章會把已選定的方案接成工作流，處理輸入輸出契約與交接問題。
 
 
-# 組合既有能力：從單一 Skill 到工作流
+# 第 2 章｜組合既有能力：從單一 Skill 到工作流
 
 ## 本章目標
 
@@ -312,7 +312,7 @@ New-Item -ItemType Directory -Force $runRoot | Out-Null
 組合 Skill 的關鍵不是把名稱排成清單，而是建立節點、契約、上下文邊界與失敗政策。當每個節點都能交付可驗證的產物，既有 Skill 才能穩定地形成工作流。下一章會處理現成方案仍有缺口時，如何以最小範圍自建 Skill。
 
 
-# 自建 Skill：規格、結構與封裝
+# 第 3 章｜自建 Skill：規格、結構與封裝
 
 ## 本章目標
 
@@ -461,7 +461,7 @@ Skill 的限制不是附註，而是功能的一部分。至少要明確寫出�
 自建 Skill 的品質取決於界線，而不是文件長度。先證明現成方案無法直接採用或組合，再用規格界定最小缺口；最後把行為契約、參考資料、腳本與範本分層管理。下一章會以測試與安全為主，確認這個 Skill 在正常與異常情況下都能可靠停損。
 
 
-# 驗證與安全：讓 Skill 值得信任
+# 第 4 章｜驗證與安全：讓 Skill 值得信任
 
 ## 本章目標
 
@@ -596,7 +596,7 @@ Skill：book-chapter-review
 可靠的 Skill 必須能在正常輸入下完成工作，也能在缺檔、錯誤與不可信內容出現時安全停下來。測試矩陣、產物檢查、資料與規則分離，以及人工閘門共同構成可信度。下一章會把通過驗證的 Skill 整理成可版本化、可分發與可維護的交付物。
 
 
-# 發布與治理：讓 Skill 長期可用
+# 第 5 章｜發布與治理：讓 Skill 長期可用
 
 ## 本章目標
 
@@ -709,7 +709,7 @@ GitHub repository 適合放置原始碼、範例與 Issue；正式版本應以 t
 Skill 的生命週期不在第一次執行成功時結束。版本、測試、文件、權限、責任與棄用策略，決定它能否被別人安全採用。下一章會把前面的方法整合成一個電子書出版案例，從需求盤點一路走到可交付的發行包。
 
 
-# 完整案例：電子書出版 Skill
+# 第 6 章｜完整案例：電子書出版 Skill
 
 ## 本章目標
 
@@ -815,7 +815,7 @@ ready-to-submit
 
 完整案例的工作流草稿與檢查表見 [`examples/06-ebook-publishing/`](../../examples/06-ebook-publishing/)。
 
-在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.3`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.3/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
+在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.4`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.4/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
 
 ## 常見錯誤
 

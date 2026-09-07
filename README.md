@@ -4,7 +4,7 @@
 
 ## 專案狀態
 
-目前為讀者可用的 `v0.1.3` 候選版。讀者可從 `main` 分支取得範例；正式 tag、授權與商店出版欄位仍在發布閘門中確認。詳細狀態見 [`PROJECT_STATUS.md`](PROJECT_STATUS.md)。
+目前為讀者可用的 `v0.1.4` 候選版。讀者可從 `main` 分支取得範例；正式 tag、授權與商店出版欄位仍在發布閘門中確認。詳細狀態見 [`PROJECT_STATUS.md`](PROJECT_STATUS.md)。
 
 ## 讀者參考 GitHub repository
 

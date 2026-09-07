@@ -1,4 +1,4 @@
-# 完整案例：電子書出版 Skill
+# 第 6 章｜完整案例：電子書出版 Skill
 
 ## 本章目標
 
@@ -104,7 +104,7 @@ ready-to-submit
 
 完整案例的工作流草稿與檢查表見 [`examples/06-ebook-publishing/`](../../examples/06-ebook-publishing/)。
 
-在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.3`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.3/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
+在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.1.4`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.1.4/`。若該版本目錄已存在，改用新的候選版本，不覆寫既有發行包。
 
 ## 常見錯誤
 
