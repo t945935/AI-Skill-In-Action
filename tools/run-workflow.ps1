@@ -48,6 +48,14 @@ function Invoke-StageCheck([string]$name) {
         if ($chapterNames -notcontains $requiredChapter) { throw "缺少必要章節：$requiredChapter" }
       }
       if ($appendices.Count -lt 5) { throw "附錄數量不足：$($appendices.Count)" }
+      foreach ($requiredPublishingCaseFile in @(
+        'examples/06-ebook-publishing/README.md',
+        'examples/06-ebook-publishing/workflow-status.md',
+        'examples/06-ebook-publishing/run-case.ps1',
+        'examples/06-ebook-publishing/verify-package.ps1'
+      )) {
+        if (-not (Test-Path -LiteralPath (Resolve-ProjectPath $requiredPublishingCaseFile))) { throw "缺少第六章範例：$requiredPublishingCaseFile" }
+      }
       foreach ($requiredWebCaseFile in @(
         'examples/07-web-learning-material/README.md',
         'examples/07-web-learning-material/SKILL.md',
@@ -62,7 +70,7 @@ function Invoke-StageCheck([string]$name) {
       }
       $broken = @(Test-MarkdownLinks)
       if ($broken.Count -gt 0) { throw "發現失效內部連結：$($broken -join '; ')" }
-      $details += "導讀與第一至第七章、附錄 $($appendices.Count) 份、第七章範例及內部連結通過。"
+      $details += "導讀與第一至第七章、附錄 $($appendices.Count) 份、第六、七章範例及內部連結通過。"
     }
     'continuity-review' {
       foreach ($file in (Get-ChildItem -LiteralPath (Resolve-ProjectPath 'manuscript/chapters') -Filter '*.md')) {

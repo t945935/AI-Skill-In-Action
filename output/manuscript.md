@@ -735,6 +735,23 @@ Skill 的生命週期不在第一次執行成功時結束。版本、測試、�
 
 最終交付包含：Markdown 原稿、可執行範例、EPUB、封面、讀者 repository 說明、版本化發行包與出版資料草稿。作者、授權、正式日期與商店帳號不由 Skill 猜測，必須由出版者確認。
 
+## 準備一組可重跑的案例輸入
+
+完整案例不能只說「準備好書稿」；團隊必須知道哪一份檔案是來源、由誰維護，以及缺少時應在哪個階段停止。本案例以 repository 根目錄為工作起點，將輸入分成以下六組：
+
+| 輸入 | 案例路徑 | 責任與檢查重點 |
+|---|---|---|
+| 章節與附錄 | `manuscript/` | 作者維護；順序、標題與內部連結必須完整 |
+| 書籍資料 | `metadata/book.yaml` | 出版者確認；書名、語言與作者不得由工具猜測 |
+| 閱讀樣式 | `styles/book.css` | 製作人維護；必須與一般網頁 CSS 分開 |
+| 正式封面 | `assets/cover/cover.jpg` | 出版者確認權利；尺寸與格式納入檢查 |
+| 上架資料草稿 | `docs/store-listing.md` | 編輯與行銷交接；價格、地區等未決欄位保留待確認 |
+| 發布閘門 | `docs/release-gates.md` | 專案負責人維護；區分自動通過與人工核准 |
+
+`output/` 與 `dist/` 都是產物，不是內容來源。若直接修改合併稿或候選包，下次建置就會失去變更，manifest 也無法回溯。開始前先在 PowerShell 執行 `git status --short`，記下原本已存在的修改；建置流程只能改動預期產物，不能順手整理不屬於本案例的檔案。
+
+接著做最低限度的輸入確認：所有來源檔存在、封面不是暫存圖、書籍資料能被讀取、書稿沒有內部試讀字樣，並選用一個尚未存在的練習版本。版本目錄一旦建立就視為不可覆寫；需要修正時應回到來源，再產生新版本。
+
 ## 需求與輸出契約
 
 先把「出版一本書」拆成可驗收的輸出：
@@ -808,6 +825,85 @@ ready-to-submit
 
 內容修改與 EPUB 建置可在隔離目錄自動執行；覆寫原稿、建立正式版本、推送 GitHub、上傳商店等操作都要停在人工確認點。確認時應顯示目標路徑、版本、檔案清單與預期外部影響。
 
+## 從輸入走到候選包
+
+範例入口位於 [`examples/06-ebook-publishing/run-case.ps1`](../../examples/06-ebook-publishing/run-case.ps1)。它不重新實作各項能力，而是依固定順序呼叫合併稿建置、EPUB 產生、工作流檢查、安全 fixture、版本化封裝與候選包驗收。
+
+第一次練習時，在 repository 根目錄執行：
+
+```powershell
+.\examples\06-ebook-publishing\run-case.ps1 -Version 0.2.1-local
+```
+
+這個命令依序完成：
+
+1. 依檔名順序合併導讀、章節與附錄，產生 `output/manuscript.md`。
+2. 使用 metadata、獨立 EPUB CSS 與正式封面建立候選 EPUB。
+3. 檢查必要章節、附錄、範例與書稿內部連結。
+4. 執行完整、缺少資料與不可信指示等正負向 fixture。
+5. 建立新的 `dist/v0.2.1-local/`，複製通過檢查的產物與交接文件。
+6. 寫入來源 commit、建置時間、檔案大小與 SHA-256。
+7. 重新讀取候選包，確認檔案齊全、雜湊一致、來源可追溯，最後停在人工核准點。
+
+成功結尾應包含：
+
+```text
+package-files: pass
+checksum-verification: pass
+manifest-traceability: pass
+release-gate: awaiting-human-approval
+case-complete: v0.2.1-local
+```
+
+前三個 `pass` 分別證明交付內容、檔案完整性與來源紀錄符合案例契約。`awaiting-human-approval` 不是失敗，而是流程刻意停止的位置；它表示程式不能替出版者完成 EPUBCheck、裝置試讀、授權確認或商店提交。
+
+## 讀懂實際輸出
+
+候選目錄應呈現以下結構：
+
+```text
+dist/v0.2.1-local/
+├── AI-Skill-In-Action.epub
+├── cover.jpg
+├── book.yaml
+├── store-listing.md
+├── release-gates.md
+├── RELEASE_STATUS.md
+├── manifest.txt
+└── SHA256SUMS.txt
+```
+
+EPUB 與封面是交付內容；`book.yaml` 與 `store-listing.md` 讓平台欄位可以重新核對；`release-gates.md` 保存未完成事項。`RELEASE_STATUS.md` 說明目前只是 `release-candidate`，`manifest.txt` 記錄版本、來源 commit、驗證器與已知限制，`SHA256SUMS.txt` 則用來偵測包內檔案是否在交接後被改動。
+
+不要只看到 EPUB 就宣告完成。收件者應能回答：這個檔案來自哪個 commit？哪套檢查已通過？哪些外部驗證仍未做？封面與上架草稿是否和候選 EPUB 屬於同一批次？只要其中一題無法從包內證據回答，交接就還不完整。
+
+## 失敗演練與修正循環
+
+完整案例至少要示範一次「失敗後回到來源」：
+
+| 失敗現象 | 正確停點 | 修正方式 | 不應採取的捷徑 |
+|---|---|---|---|
+| 缺少 Pandoc | 建置前 | 安裝並確認 `pandoc --version` | 放入來源不明的預建 EPUB |
+| 缺少封面或 metadata | EPUB 建置 | 補齊並確認正式來源 | 建立空白檔騙過檢查 |
+| 書稿連結失效 | 工作流驗證 | 修正 Markdown 中的相對路徑 | 從報告刪除錯誤行 |
+| 安全 fixture 未如預期阻塞 | 安全驗證 | 修正規則並重跑正負向案例 | 跳過 fixture 繼續封裝 |
+| 相同版本已存在 | 發行封裝 | 保留舊包，改用新版本 | 刪除或覆寫既有版本 |
+| SHA-256 不符 | 收件驗收 | 回到來源重建新候選包 | 直接修改舊包後重算雜湊 |
+
+每次修正都先改來源，再從失敗節點或整條流程重跑，並在 `workflow-status.md` 記錄產物、阻塞原因與確認人。這能保留問題如何被發現及排除的證據，而不是只留下最後一次成功畫面。
+
+## 驗收候選發行包
+
+若候選包由另一位協作者交付，可不重建內容，先執行只讀驗收：
+
+```powershell
+.\examples\06-ebook-publishing\verify-package.ps1 -Version 0.2.1-local
+```
+
+驗收腳本確認八項必要檔案、逐檔 SHA-256、manifest 版本、`release-candidate` 狀態與完整來源 commit。它故意不把人工項目改成已完成。自動驗收通過後，出版者仍要開啟 EPUB，在桌面與手機閱讀器檢查封面、目錄、表格、程式碼與連結，再以最新 EPUBCheck 留下正式報告。
+
+最後核對作者、出版者、版權、授權、ISBN 或平台識別碼、價格、銷售地區與上架日期。這些欄位全部有負責人與證據後，才可由 `release-candidate` 進入 `ready-to-submit`；實際上傳仍需要另一個清楚顯示平台、帳號、檔案與外部影響的人工確認。
+
 ## 發行與回顧
 
 通過驗證後，依第五章建立版本化發行包，至少包含 EPUB、封面、manifest、SHA-256、變更記錄與測試摘要。讀者 repository 應以固定 tag 或 commit 對應書中範例；正式 URL 與授權未確認前，文件保留待確認標記。
@@ -816,7 +912,7 @@ ready-to-submit
 
 完整案例的工作流草稿與檢查表見 [`examples/06-ebook-publishing/`](../../examples/06-ebook-publishing/)。
 
-在 repository 根目錄執行 `./examples/06-ebook-publishing/run-case.ps1 -Version 0.2.0-local`，預期依序看到 `manuscript-check: pass`、`continuity-review: pass`、`epub-validation: pass`，以及三個安全 fixture 結果；最後會產生 `dist/v0.2.0-local/`。若該版本目錄已存在，改用新的練習版本，不覆寫既有發行包。
+若只想驗證流程而不把練習產物放入正式 `dist/`，可以用 `-OutputRoot` 指定隔離目錄。無論輸出在哪裡，相同版本都不得覆寫；測試結束後也要先確認目標確實是測試目錄，再依團隊規則清理。
 
 ## 常見錯誤
 
