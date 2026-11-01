@@ -44,6 +44,10 @@ cp -R examples/03-build-skill/. "$skill_root/"
 
 安裝後，要求宿主檢查一個指定副章，並確認它只產生報告、不覆寫原稿。若宿主沒有 `.codex/skills` 目錄，請改用該宿主的官方 Skill 安裝方式，不要猜測路徑。
 
+## 使用 OpenCode 電子書出版 Skill
+
+本 repository 在 [`.opencode/skills/ebook-production/SKILL.md`](.opencode/skills/ebook-production/SKILL.md) 提供可載入的 OpenCode project Skill。從 repository 內啟動 OpenCode 時，依 OpenCode 的 project Skill discovery 規則載入；只要安裝這一支時，保留 `.opencode/skills/ebook-production/` 目錄結構。Codex 或其他宿主請依該宿主官方文件確認安裝路徑，不要直接假設相容。
+
 ## 先跑不需 AI 帳號的範例
 
 先閱讀 [`examples/skills/skill-catalog.md`](examples/skills/skill-catalog.md)，確認每個候選 Skill 的來源、限制與驗收證據；不要因名稱相似就直接安裝。

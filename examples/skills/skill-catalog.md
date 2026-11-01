@@ -24,3 +24,7 @@
 納入書中主線的 Skill 必須有明確來源、版本查證欄位、授權狀態、至少一個成功案例與一個失敗案例，並能在乾淨目錄重跑。若無法取得上述證據，只能列為候選，不得寫成「推薦」或「已驗證」。
 
 本 repository 不包裝第三方 Skill 的完整檔案；讀者應依宿主官方文件安裝，並把實際版本與日期記入自己的 inventory。
+
+## 本 repository 自建 Skill
+
+`ebook-production` 是本 repository 的 OpenCode 電子書製作 Skill，整合本案例需要的改版、窄螢幕排版與 EPUB 驗證流程，不取代專用的連貫性、EPUBCheck 或發行封裝能力。它目前是候選範例，尚未通過一組獨立的成功／失敗／安全 fixture 與乾淨目錄安裝測試，因此不列入核心評分；詳見 [`Skill 卡片`](ebook-production/README.md) 與 [完整原始檔](../../.opencode/skills/ebook-production/SKILL.md)。

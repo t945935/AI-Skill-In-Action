@@ -29,6 +29,7 @@
 - [`manuscript/appendices/`](manuscript/appendices/)：選型、測試、安全與發布範本
 - [`examples/`](examples/)：讀者可下載與執行的範例
 - [`examples/skills/skill-catalog.md`](examples/skills/skill-catalog.md)：核心 Skill 導覽與初評矩陣
+- [`.opencode/skills/ebook-production/SKILL.md`](.opencode/skills/ebook-production/SKILL.md)：本 repository 自建的 OpenCode 電子書製作 Skill
 - [`assets/cover/cover.jpg`](assets/cover/cover.jpg)：已選定的 1600×2400 JPG 封面
 - [`assets/cover/cover.svg`](assets/cover/cover.svg)：向量原始封面素材
 - [`assets/cover/options/`](assets/cover/options/)：三款封面候選與風格說明
